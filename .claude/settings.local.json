@@ -3,7 +3,9 @@
     "allow": [
       "Bash(lsof:*)",
       "Bash(xargs kill:*)",
-      "Bash(bun x ultracite fix:*)"
+      "Bash(bun x ultracite fix:*)",
+      "Bash(ls:*)",
+      "Bash(bunx alchemy --help:*)"
     ]
   }
 }

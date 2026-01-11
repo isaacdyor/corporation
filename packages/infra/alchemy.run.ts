@@ -1,10 +1,16 @@
 import alchemy from "alchemy";
-import { Vite, Worker } from "alchemy/cloudflare";
+import {
+	Assets,
+	DurableObjectNamespace,
+	Vite,
+	Worker,
+} from "alchemy/cloudflare";
 import { config } from "dotenv";
 
 config({ path: "./.env" });
 config({ path: "../../apps/web/.env" });
 config({ path: "../../apps/server/.env" });
+config({ path: "../../apps/agent/.env" });
 
 const app = await alchemy("corporation");
 
@@ -31,7 +37,29 @@ export const server = await Worker("server", {
 	},
 });
 
+export const agent = await Worker("agent", {
+	cwd: "../../apps/agent",
+	entrypoint: "src/server.ts",
+	compatibility: "node",
+	url: true,
+	bindings: {
+		ASSETS: await Assets({ path: "../../apps/agent/public" }),
+		Chat: DurableObjectNamespace("Chat", {
+			className: "Chat",
+			sqlite: true,
+		}),
+		OPENAI_API_KEY: alchemy.secret(alchemy.env("OPENAI_API_KEY")),
+	},
+	observability: {
+		enabled: true,
+	},
+	dev: {
+		port: 3002,
+	},
+});
+
 console.log(`Web    -> ${web.url}`);
 console.log(`Server -> ${server.url}`);
+console.log(`Agent  -> ${agent.url}`);
 
 await app.finalize();
