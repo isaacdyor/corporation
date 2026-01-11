@@ -10,7 +10,7 @@
   "backend": "hono",
   "runtime": "workers",
   "frontend": ["tanstack-router"],
-  "addons": ["biome", "husky", "turborepo", "ultracite"],
+  "addons": ["biome", "turborepo", "ultracite"],
   "examples": ["todo"],
   "auth": "better-auth",
   "payments": "none",

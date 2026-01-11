@@ -15,7 +15,6 @@ This project was created with [Better-T-Stack](https://github.com/AmanVarshney01
 - **PostgreSQL** - Database engine
 - **Authentication** - Better-Auth
 - **Biome** - Linting and formatting
-- **Husky** - Git hooks for code quality
 - **Turborepo** - Optimized monorepo build system
 
 ## Getting Started
