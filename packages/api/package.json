@@ -11,6 +11,7 @@
   },
   "scripts": {},
   "dependencies": {
+    "@ai-sdk/anthropic": "^1.2.12",
     "@corporation/auth": "workspace:*",
     "@corporation/db": "workspace:*",
     "@corporation/env": "workspace:*",
@@ -19,6 +20,7 @@
     "@orpc/server": "catalog:",
     "@orpc/zod": "catalog:",
     "@types/pg": "^8.15.6",
+    "ai": "^6.0.27",
     "dotenv": "catalog:",
     "drizzle-orm": "catalog:",
     "zod": "catalog:"

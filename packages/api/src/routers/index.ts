@@ -1,6 +1,7 @@
 import type { RouterClient } from "@orpc/server";
 
 import { protectedProcedure, publicProcedure } from "../index";
+import { chatRouter } from "./chat";
 import { todoRouter } from "./todo";
 
 export const appRouter = {
@@ -14,6 +15,7 @@ export const appRouter = {
 		};
 	}),
 	todo: todoRouter,
+	chat: chatRouter,
 };
 export type AppRouter = typeof appRouter;
 export type AppRouterClient = RouterClient<typeof appRouter>;

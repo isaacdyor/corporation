@@ -35,7 +35,9 @@
     "db:migrate": "turbo -F @corporation/db db:migrate"
   },
   "dependencies": {
+    "@ai-sdk/react": "^3.0.29",
     "@corporation/env": "workspace:*",
+    "@daytonaio/sdk": "^0.129.0",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },
